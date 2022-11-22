@@ -14,7 +14,7 @@ function Technologies() {
             text: ''
         })
     
-    let obj = [
+    const obj = [
         {   id: 'num1',
             name: 'Platform Development',
             text: 'We will build a new platform for your business; placing your frontend, backend & database microservices into containers and serving them via a Kubernetes Infrastructure. Upon completion you will be given a system handover which will include complete documentation as well a system walkthrough. All clients are given xxx hours of further support to ease the handover.'
@@ -32,10 +32,13 @@ function Technologies() {
     return (
         <div className="pb-1 pt-1" style={{backgroundColor: 'rgba(0, 0, 0, 0.6)', height: '100vh'}}>
           <div className="h-100">
-            <h3>Our Services</h3>
             <br />
             
             <Container className="mt-4 mb-4">
+            
+            <h2 className="text-white">Our Services</h2>
+            <br />
+
                 <Row className="text-white">
                     {obj.map((item) => {
 
@@ -44,7 +47,7 @@ function Technologies() {
                         return (
                             <Col  key={item.id} className='pl-5 pr-5' onClick={() => { setModal(true); setInjectModal(obj[i])} }>
                                 <div>
-                                    <h5 className="text-decoration-underline">{item.title}</h5>
+                                    <h5 className="text-decoration-underline">{item.name}</h5>
                                     <p>{item.text}</p>
                                     <Button variant="outline-light">More</Button>
                                 </div>
