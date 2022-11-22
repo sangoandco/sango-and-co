@@ -1,29 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:900');
 
-/* body {
-  font-family: 'Work Sans', sans-serif;
-  background: #111;
-} */
-
-/* div {
-  display: flex;
-  flex-direction: column;
-  max-width: 1000px;
-  margin: 5em auto;
-  text-align: center;
-  font-size: 20px;
-  letter-spacing: 1px;
-  color: blue;
-} */
-
-.random-word {
+.dynamic-word {
   display: inline-block;
-  /* text-transform: uppercase; */
-  /* color: red; */
   text-align: center;
   letter-spacing: 3px;
   width: 700px;
-  /* transition: all 1.25s; */
   animation: slidedown 4s infinite;
   -webkit-animation: slidedown 4s infinite;
   -moz-animation: slidedown 4s infinite;
