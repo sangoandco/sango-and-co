@@ -16,32 +16,33 @@ function Technologies() {
     
     let obj = [
         {   id: 'num1',
-            name: 'frontend',
-            text: 'Your frontend is the part of your platform that faces the world, i.e client facing. This is usually in the form of a website or an app but it is important to know that this can be any other user interface.'
+            name: 'Platform Development',
+            text: 'We will build a new platform for your business; placing your frontend, backend & database microservices into containers and serving them via a Kubernetes Infrastructure. Upon completion you will be given a system handover which will include complete documentation as well a system walkthrough. All clients are given xxx hours of further support to ease the handover.'
         },
         {   id: 'num2',
-            name: 'backend', 
-            text: 'Backend Backend Backend Backend Backend Backend Backend Backend Backend Backend Backend Backend Backend Backend Backend Backend Backend Backend Backend Backend Backend Backend Backend .'
+            name: 'Platrform Migration', 
+            text: 'We will evaluate your existing website and assess what aspects can be migrated to the cloud. We may recommend that we refactor some code to ensure applications play together nicely. We will then containerise your codebase and place it onto a new Kubernetes infrastructure. '
         },
         {   id: 'num3',
-            name: 'infrastructure', 
-            text: 'infrastructure infrastructure infrastructure infrastructure infrastructure infrastructure infrastructure infrastructure infrastructure infrastructure infrastructure infrastructure infrastructure infrastructure infrastructure .'
+            name: 'Platfoerm Consultation', 
+            text: 'We will carry out an in depth analysis of your current infrastructure; detailing your strengths and areas for improvement. We will also provide suggestions on the best stack to use based upon your current platform and the intended direction of your business.'
         }        
     ];
 
     return (
         <div className="pb-1 pt-1" style={{backgroundColor: 'rgba(0, 0, 0, 0.6)', height: '100vh'}}>
           <div className="h-100">
+            <h3>Our Services</h3>
             <br />
             
             <Container className="mt-4 mb-4">
-                <Row className="text-white technology-container">
+                <Row className="text-white">
                     {obj.map((item) => {
 
                         let i = obj.findIndex((e) => { return e.id === item.id});
 
                         return (
-                            <Col  key={item.id} className='pl-5 pr-5' onClick={() => (setModal(true), setInjectModal(obj[i])) }>
+                            <Col  key={item.id} className='pl-5 pr-5' onClick={() => { setModal(true); setInjectModal(obj[i])} }>
                                 <div>
                                     <h5 className="text-decoration-underline">{item.title}</h5>
                                     <p>{item.text}</p>

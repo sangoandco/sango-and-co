@@ -2,13 +2,15 @@ import React, { useEffect, useRef } from "react";
 import './Hero.css';
 import storm from "../../images/lightning.jpg";
 import sango from "../../images/sangoandco-w.png";
-import Image from 'react-bootstrap/Image'
 import { Navbar } from "react-bootstrap";
-import { Container, Row, Col } from 'react-bootstrap';
+import { useAuth0 } from "@auth0/auth0-react";
+import LoginButton from "../Buttons/LoginButton";
+import LogoutButton from "../Buttons/LogoutButton";
 
 function Hero() {
 
-  console.log('Hero Test')
+  const { isAuthenticated } = useAuth0();
+
   const ref = useRef();
 
     const phrases = [
@@ -28,12 +30,7 @@ function Hero() {
         let i = 0;
 
         const randomizeText = () => {
-            const phrase = document.querySelector('.random-word');
-            // const computed = window
-            // .getComputedStyle(ref.current)
-            // .getPropertyValue('animation')
-
-            // const animationTime = parseFloat(computed.match(/\d*[.]?\d+/)) * 1000;
+            const phrase = document.querySelector('.dynamic-word');
 
             i = randomNum(i, phrases.length);
             const newPhrase = phrases[i];
@@ -65,12 +62,12 @@ function Hero() {
           
         randomizeText();
         setInterval(randomizeText, getAnimationTime());
-    },[])
+    })
 
     return (
       <>
          <Navbar bg="dark" variant="dark" fixed="bottom">
-        <Container className="sango-nav">
+        <div className="container-fluid">
           <Navbar.Brand href="#home">
             <img
               alt=""
@@ -81,8 +78,15 @@ function Hero() {
             />
             <span>Sango & Co.</span>
           </Navbar.Brand>
-        </Container>
-      </Navbar>   
+
+          {!isAuthenticated ? 
+            <LoginButton/> : 
+            <LogoutButton />
+          }
+
+        </div>
+      </Navbar>
+         
         <div className="bg-image" style={{backgroundImage: `url(${storm})`, height: '100vh'}}>
         <div className="mask" style={{backgroundColor: 'rgba(0, 0, 0, 0.6)'}}>
           <div className="d-flex justify-content-center align-items-center h-100">
@@ -91,7 +95,7 @@ function Hero() {
               {/* <Image className="logo" src={sango} /> */}
               
               <h1 className="sango-title">We build</h1>
-              <span ref={ref} className='random-word sango-title'></span> 
+              <span ref={ref} className='dynamic-word sango-title'></span> 
               <h1 className="sango-title">digital platforms</h1>
 
             </div>
