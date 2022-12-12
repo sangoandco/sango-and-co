@@ -1,4 +1,4 @@
-# Sango & Co. Project Overview
+# Moses Sangobiyi Project Overview
 
 This is a full stack application built on a MERN STACK
 * MongoDb
